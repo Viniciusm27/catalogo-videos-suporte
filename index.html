@@ -20,7 +20,7 @@
 
   <!-- Conteúdo principal -->
   <div class="container">
-    <h1>Catálgo de Vídeos - Suporte Técnico</h1>
+    <h1>Catálogo de Vídeos - Suporte Técnico</h1>
     <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
     <div id="video-list"></div>
     <div class="pagination" id="pagination"></div>
@@ -117,5 +117,36 @@
         .catch(err => console.error('Erro ao registrar o Service Worker:', err));
     }
   </script>
+  <!-- Notificação de atualização -->
+<div id="update-notice" style="display: none;">
+  🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(reg => {
+      console.log('Service Worker registrado');
+
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            document.getElementById('update-notice').style.display = 'block';
+          }
+        });
+      });
+    });
+  }
+
+  function reloadApp() {
+    navigator.serviceWorker.getRegistration().then(reg => {
+      if (reg && reg.waiting) {
+        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+    });
+    window.location.reload();
+  }
+</script>
+
 </body>
 </html>
