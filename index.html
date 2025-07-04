@@ -12,12 +12,15 @@
 <body>
   <!-- Splash screen -->
   <div id="splash-screen">
-    <div>Carregando Catálogo...</div>
+    <div class="splash-content">
+      <img src="icon-512.png" alt="Logo" class="splash-logo" />
+      <div class="splash-text">Carregando Catálogo...</div>
+    </div>
   </div>
 
   <!-- Conteúdo principal -->
   <div class="container">
-    <h1>Catálogo de Vídeos - Suporte Técnico</h1>
+    <h1>Catálgo de Vídeos - Suporte Técnico</h1>
     <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
     <div id="video-list"></div>
     <div class="pagination" id="pagination"></div>
