@@ -5,17 +5,31 @@
   <meta name="description" content="Catálogo de vídeos de suporte técnico para equipamentos diversos. Busque por modelo e veja tutoriais." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#1976d2" />
+  <meta name="app-version" content="v3">
   <link rel="manifest" href="manifest.json" />
   <title>Catálogo de Vídeos - Suporte Técnico</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Força recarregamento no iOS ao detectar nova versão via parâmetro
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS && window.location.search.indexOf('v=') === -1) {
+      const newURL = `${window.location.pathname}?v=${Date.now()}`;
+      window.location.replace(newURL);
+    }
+  </script>
 </head>
 <body>
   <!-- Splash screen -->
   <div id="splash-screen">
     <div class="splash-content">
-      <img src="icon-512.png" alt="Logo" class="splash-logo" />
+      <img src="icon-192.png" alt="Logo" class="splash-logo" />
       <div class="splash-text">Carregando Catálogo...</div>
     </div>
+  </div>
+
+  <!-- Notificação de atualização -->
+  <div id="update-notice" style="display: none;">
+    🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
   </div>
 
   <!-- Conteúdo principal -->
@@ -33,7 +47,6 @@
     const videosPerPage = 10;
     let searchTerm = '';
 
-    // Função para carregar o arquivo videos.json
     async function loadVideos() {
       try {
         const response = await fetch('videos.json');
@@ -98,55 +111,44 @@
       });
     }
 
-    // Executa ao carregar a página
+    function reloadApp() {
+      navigator.serviceWorker.getRegistration().then(reg => {
+        if (reg && reg.waiting) {
+          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+      });
+      window.location.reload();
+    }
+
+    // Ao carregar a página
     window.onload = () => {
       setTimeout(() => {
         const splash = document.getElementById('splash-screen');
         if (splash) splash.style.display = 'none';
-      }, 3000); // Tempo do splash
+      }, 3000);
 
       loadVideos();
     };
-  </script>
 
-  <!-- Registro do service worker -->
-  <script>
+    // Registro do service worker com verificação de atualização
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registrado com sucesso.'))
-        .catch(err => console.error('Erro ao registrar o Service Worker:', err));
-    }
-  </script>
-  <!-- Notificação de atualização -->
-<div id="update-notice" style="display: none;">
-  🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
-</div>
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').then(reg => {
+          console.log('Service Worker registrado');
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(reg => {
-      console.log('Service Worker registrado');
+          reg.update();
 
-      reg.addEventListener('updatefound', () => {
-        const newWorker = reg.installing;
-        newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            document.getElementById('update-notice').style.display = 'block';
-          }
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                document.getElementById('update-notice').style.display = 'block';
+              }
+            });
+          });
         });
       });
-    });
-  }
-
-  function reloadApp() {
-    navigator.serviceWorker.getRegistration().then(reg => {
-      if (reg && reg.waiting) {
-        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-      }
-    });
-    window.location.reload();
-  }
-</script>
-
+    }
+  </script>
 </body>
 </html>
