@@ -2,13 +2,15 @@
   {
     "title": "Como configurar no APP LEDART",
     "embed": "https://www.youtube.com/embed/Dby-BVcfC1w",
-    "description": "Modelos atendidos: Painel",
-    "link": "https://youtu.be/Dby-BVcfC1w"
+    "description": "Modelos atendidos: Painel de LED",
+    "link": "https://youtu.be/Dby-BVcfC1w",
+    "category": "paineldeled"
   },
   {
     "title": "Configuração Relógio de ponto SC-9005",
     "embed": "https://www.youtube.com/embed/4bYgCKsWr6A",
     "description": "Modelos atendidos: SC-9005, SC9005",
-    "link": "https://youtu.be/4bYgCKsWr6A"
+    "link": "https://youtu.be/4bYgCKsWr6A",
+    "category": "relogiodeponto"
   }
 ]
