@@ -1,106 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="Catálogo de vídeos de suporte técnico para equipamentos diversos. Busque por modelo e veja tutoriais." />
   <meta name="theme-color" content="#1976d2" />
   <link rel="manifest" href="manifest.json" />
   <title>Catálogo de Vídeos - Suporte Técnico</title>
   
   <!-- Estilos da página -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 10px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-    }
-
-    .search-bar {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-
-    .video {
-      margin-bottom: 20px;
-    }
-
-    .video iframe {
-      width: 100%;
-      height: 250px;
-    }
-
-    .description {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .copy-btn {
-      background-color: #1976d2;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      margin-top: 5px;
-    }
-
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .pagination button {
-      margin: 0 5px;
-      padding: 8px 12px;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    /* Splash screen animado */
-    #splash-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #1976d2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      color: white;
-      font-size: 1.5rem;
-      animation: fadeOut 1s ease-in-out 2s forwards;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @media (min-width: 600px) {
-      .video iframe {
-        height: 400px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Splash screen -->
