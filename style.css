@@ -19,16 +19,6 @@ body {
   border-right: 1px solid #ddd;
   padding: 1rem;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.sidebar-logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 8px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .sidebar h3 {
@@ -59,6 +49,13 @@ body {
   background-color: #e3f2fd;
 }
 
+.sidebar-logo {
+  width: 100%;
+  max-width: 150px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
 /* Conteúdo principal */
 .container {
   flex: 1;
@@ -83,8 +80,14 @@ h1 {
 
 #video-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  #video-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .video {
@@ -97,7 +100,8 @@ h1 {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -108,7 +112,8 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  border: 0;
+  border-radius: 10px;
 }
 
 .video p {
