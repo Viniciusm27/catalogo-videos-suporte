@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1976d2" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Catálogo de Vídeos - Suporte Técnico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    .video {
+      margin-bottom: 20px;
+    }
+    .video iframe {
+      width: 100%;
+      height: 250px;
+    }
+    .description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .copy-btn {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .pagination button {
+      margin: 0 5px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    @media (min-width: 600px) {
+      .video iframe {
+        height: 400px;
+      }
+    }
+    /* Splash Screen */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #1976d2;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease 2.5s forwards;
+    }
+
+    .splash-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <img src="icon-192.png" alt="Logo" class="splash-icon" />
+    <h2>Carregando Catálogo...</h2>
+  </div>
+
+  <div class="container">
+    <h1>Catálogo de Vídeos - Suporte Técnico</h1>
+    <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
+    <div id="video-list"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <script>
+    const videos = [
+      {
+        title: "Como configurar no APP LEDART",
+        embed: "https://youtu.be/Dby-BVcfC1w",
+        description: "Modelos atendidos: Painel",
+        link: "https://youtu.be/Dby-BVcfC1w"
+      },
+      {
+        title: "Configuração Relógio de ponto SC-9005",
+        embed: "https://youtu.be/4bYgCKsWr6A",
+        description: "Modelos atendidos: SC-9005, SC9005",
+        link: "https://youtu.be/4bYgCKsWr6A"
+      },
+      // Adicione mais vídeos conforme necessário
+    ];
+
+    let currentPage = 1;
+    const videosPerPage = 10;
+
+    function displayVideos() {
+      const start = (currentPage - 1) * videosPerPage;
+      const end = start + videosPerPage;
+      const filteredVideos = videos.filter(v =>
+        v.title.toLowerCase().includes(searchTerm) ||
+        v.description.toLowerCase().includes(searchTerm)
+      );
+      const paginatedVideos = filteredVideos.slice(start, end);
+      const list = document.getElementById('video-list');
+      list.innerHTML = '';
+      paginatedVideos.forEach(video => {
+        list.innerHTML += `
+          <div class="video">
+            <iframe src="${video.embed}" frameborder="0" allowfullscreen></iframe>
+            <p><strong>${video.title}</strong></p>
+            <p class="description">${video.description}</p>
+            <button class="copy-btn" onclick="copyToClipboard('${video.link}')">Copiar Link</button>
+          </div>
+        `;
+      });
+      updatePagination(filteredVideos.length);
+    }
+
+    function updatePagination(totalVideos) {
+      const totalPages = Math.ceil(totalVideos / videosPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `<button onclick="goToPage(${i})">${i}</button>`;
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      displayVideos();
+    }
+
+    let searchTerm = '';
+    function searchVideos() {
+      searchTerm = document.querySelector('.search-bar').value.toLowerCase();
+      currentPage = 1;
+      displayVideos();
+    }
+
+    function copyToClipboard(link) {
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copiado com sucesso!");
+      });
+    }
+
+    displayVideos();
+  </script>
+
+  <script>
+    // Remover splash após 3 segundos
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) splash.style.display = 'none';
+    }, 3000);
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registrado com sucesso.'))
+        .catch(err => console.error('Erro ao registrar o Service Worker:', err));
+    }
+  </script>
+</body>
+</html>
