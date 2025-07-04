@@ -229,3 +229,31 @@ h1 {
     font-size: 1rem;
   }
 }
+#update-notice {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #003366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 10000;
+}
+
+#update-notice button {
+  margin-left: 10px;
+  background: #66b0ff;
+  color: #003366;
+  border: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#update-notice button:hover {
+  background: #005db3;
+  color: white;
+}
