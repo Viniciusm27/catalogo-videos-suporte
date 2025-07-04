@@ -35,6 +35,7 @@
   <div class="layout">
     <!-- Barra lateral de categorias -->
     <aside class="sidebar">
+      <img src="ITBLUELOGO.png" alt="Logo" class="sidebar-logo">
       <h3>CATEGORIAS</h3>
       <ul>
         <li onclick="filterByCategory('multimidia')">Multimídia</li>
@@ -90,7 +91,9 @@
       paginatedVideos.forEach(video => {
         list.innerHTML += `
           <div class="video">
-            <iframe src="${video.embed}" frameborder="0" allowfullscreen></iframe>
+            <div class="video-wrapper">
+              <iframe src="${video.embed}" frameborder="0" allowfullscreen></iframe>
+            </div>
             <p><strong>${video.title}</strong></p>
             <p class="description">${video.description}</p>
             <button class="copy-btn" onclick="copyToClipboard('${video.link}')">Copiar Link</button>
