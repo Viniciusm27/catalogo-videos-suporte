@@ -10,7 +10,6 @@
   <title>Catálogo de Vídeos - Suporte Técnico</title>
   <link rel="stylesheet" href="style.css" />
   <script>
-    // Força recarregamento no iOS ao detectar nova versão via parâmetro
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS && window.location.search.indexOf('v=') === -1) {
       const newURL = `${window.location.pathname}?v=${Date.now()}`;
@@ -32,20 +31,36 @@
     🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
   </div>
 
-  <!-- Conteúdo principal -->
-  <div class="container">
-    <h1>Catálogo de Vídeos - Suporte Técnico</h1>
-    <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
-    <div id="video-list"></div>
-    <div class="pagination" id="pagination"></div>
+  <!-- Layout principal com barra lateral -->
+  <div class="layout">
+    <!-- Barra lateral de categorias -->
+    <aside class="sidebar">
+      <h3>CATEGORIAS</h3>
+      <ul>
+        <li onclick="filterByCategory('multimidia')">Multimídia</li>
+        <li onclick="filterByCategory('camera')">Câmera</li>
+        <li onclick="filterByCategory('dvr')">DVR</li>
+        <li onclick="filterByCategory('Relogiodeponto')">Relógio de ponto</li>
+        <li onclick="filterByCategory('paineldeled')">Painel de LED</li>
+        <li onclick="filterByCategory('todos')">Todos</li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <h1>Catálogo de Vídeos - Suporte Técnico</h1>
+      <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
+      <div id="video-list"></div>
+      <div class="pagination" id="pagination"></div>
+    </main>
   </div>
 
-  <!-- Script com os dados e funções -->
   <script>
     let videos = [];
     let currentPage = 1;
     const videosPerPage = 10;
     let searchTerm = '';
+    let currentCategory = 'todos';
 
     async function loadVideos() {
       try {
@@ -61,10 +76,12 @@
       const start = (currentPage - 1) * videosPerPage;
       const end = start + videosPerPage;
 
-      const filteredVideos = videos.filter(v =>
-        v.title.toLowerCase().includes(searchTerm) ||
-        v.description.toLowerCase().includes(searchTerm)
-      );
+      const filteredVideos = videos.filter(v => {
+        const matchSearch = v.title.toLowerCase().includes(searchTerm) ||
+                            v.description.toLowerCase().includes(searchTerm);
+        const matchCategory = currentCategory === 'todos' || v.category === currentCategory;
+        return matchSearch && matchCategory;
+      });
 
       const paginatedVideos = filteredVideos.slice(start, end);
       const list = document.getElementById('video-list');
@@ -105,6 +122,12 @@
       displayVideos();
     }
 
+    function filterByCategory(category) {
+      currentCategory = category;
+      currentPage = 1;
+      displayVideos();
+    }
+
     function copyToClipboard(link) {
       navigator.clipboard.writeText(link).then(() => {
         alert("Link copiado com sucesso!");
@@ -120,7 +143,6 @@
       window.location.reload();
     }
 
-    // Ao carregar a página
     window.onload = () => {
       setTimeout(() => {
         const splash = document.getElementById('splash-screen');
@@ -130,14 +152,11 @@
       loadVideos();
     };
 
-    // Registro do service worker com verificação de atualização
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js').then(reg => {
           console.log('Service Worker registrado');
-
           reg.update();
-
           reg.addEventListener('updatefound', () => {
             const newWorker = reg.installing;
             newWorker.addEventListener('statechange', () => {
