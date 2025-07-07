@@ -16,6 +16,16 @@
       window.location.replace(newURL);
     }
   </script>
+  <style>
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none !important;
+      }
+      .sidebar-logo {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Splash screen -->
@@ -31,18 +41,21 @@
     🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
   </div>
 
-  <!-- Top bar com menu e logo -->
+  <!-- Barra superior -->
   <div class="top-bar">
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-    <img src="ITBLUELOGO.png" alt="Logo" class="top-logo" />
-    <div style="width:40px"></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <img src="ITBLUELOGO.png" class="top-logo" alt="Logo ITBLUE" />
   </div>
 
   <!-- Layout principal com barra lateral -->
-  <div class="layout">
+  <div class="layout" onclick="closeMenuOnClickOutside(event)">
     <!-- Barra lateral de categorias -->
     <aside class="sidebar" id="sidebar">
-      <h3>CATEGORIAS</h3>
+      <img src="ITBLUELOGO.png" class="sidebar-logo" alt="Logo ITBLUE" />
+      <h3>
+        CATEGORIAS
+        <button class="close-btn" onclick="toggleMenu()">✕</button>
+      </h3>
       <ul>
         <li onclick="filterByCategory('multimidia')">Multimídia</li>
         <li onclick="filterByCategory('camera')">Câmera</li>
@@ -152,9 +165,18 @@
       window.location.reload();
     }
 
-    function toggleSidebar() {
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+
+    function closeMenuOnClickOutside(event) {
       const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('show');
+      if (window.innerWidth <= 768 && sidebar.classList.contains('show')) {
+        const isClickInside = sidebar.contains(event.target) || event.target.classList.contains('menu-toggle');
+        if (!isClickInside) {
+          sidebar.classList.remove('show');
+        }
+      }
     }
 
     window.onload = () => {
