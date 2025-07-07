@@ -6,15 +6,20 @@ body {
   color: #222;
 }
 
-/* Layout geral */
-.layout {
+/* Topo fixo com logo centralizado */
+.top-bar {
   display: flex;
-  min-height: 100vh;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Botão menu hamburguer */
-.menu-toggle {
+.top-bar .menu-toggle {
   display: none;
   background-color: #1976d2;
   color: white;
@@ -22,11 +27,19 @@ body {
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
   border-radius: 6px;
+}
+
+.top-bar .top-logo {
+  height: 40px;
+  margin: auto;
+}
+
+/* Layout geral */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
 }
 
 /* Barra lateral */
@@ -240,9 +253,15 @@ h1 {
 
 /* Responsivo */
 @media (max-width: 768px) {
-  h1 {
-    padding-left: 50px;
+  .top-bar .menu-toggle {
+    display: block;
   }
+
+  h1 {
+    padding-left: 0;
+    text-align: center;
+  }
+
   .layout {
     flex-direction: column;
   }
@@ -264,11 +283,7 @@ h1 {
     display: block;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
   #video-list {
     grid-template-columns: 1fr;
   }
-} 
+}
