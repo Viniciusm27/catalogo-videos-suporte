@@ -18,6 +18,9 @@
   </script>
 </head>
 <body>
+  <!-- Botão menu hamburguer -->
+  <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
   <!-- Splash screen -->
   <div id="splash-screen">
     <div class="splash-content">
@@ -35,7 +38,7 @@
   <div class="layout">
     <!-- Barra lateral de categorias -->
     <aside class="sidebar">
-      <img src="ITBLUELOGO.png" alt="Logo" class="sidebar-logo">
+      <img src="ITBLUELOGO.png" alt="Logo" class="sidebar-logo" />
       <h3>CATEGORIAS</h3>
       <ul>
         <li onclick="filterByCategory('multimidia')">Multimídia</li>
@@ -144,6 +147,10 @@
         }
       });
       window.location.reload();
+    }
+
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('show');
     }
 
     window.onload = () => {
