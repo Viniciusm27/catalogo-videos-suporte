@@ -17,10 +17,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 56px;
 }
 
 .top-bar .menu-toggle {
-  display: none;
   background-color: #1976d2;
   color: white;
   padding: 10px 15px;
@@ -32,6 +32,8 @@ body {
 
 .top-bar .top-logo {
   height: 40px;
+  max-width: 160px;
+  object-fit: contain;
   margin: auto;
 }
 
@@ -49,6 +51,7 @@ body {
   border-right: 1px solid #ddd;
   padding: 1rem;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .sidebar-logo {
@@ -64,6 +67,18 @@ body {
   font-size: 1.1rem;
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar h3 .close-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
 }
 
 .sidebar ul {
@@ -206,6 +221,7 @@ h1 {
   height: 100px;
   margin-bottom: 1rem;
   animation: pulse 2s infinite;
+  object-fit: contain;
 }
 
 .splash-text {
@@ -283,7 +299,15 @@ h1 {
     display: block;
   }
 
+  .sidebar.show h3 .close-btn {
+    display: inline;
+  }
+
   #video-list {
     grid-template-columns: 1fr;
+  }
+
+  .top-logo {
+    height: 36px;
   }
 }
