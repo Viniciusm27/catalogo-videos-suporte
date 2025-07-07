@@ -18,13 +18,10 @@
   </script>
 </head>
 <body>
-  <!-- Botão menu hamburguer -->
-  <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
-
   <!-- Splash screen -->
   <div id="splash-screen">
     <div class="splash-content">
-      <img src="icon-192.png" alt="Logo" class="splash-logo" />
+      <img src="ITBLUELOGO.png" alt="Logo" class="splash-logo" />
       <div class="splash-text">Carregando Catálogo...</div>
     </div>
   </div>
@@ -34,11 +31,17 @@
     🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
   </div>
 
+  <!-- Top bar com menu e logo -->
+  <div class="top-bar">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <img src="ITBLUELOGO.png" alt="Logo" class="top-logo" />
+    <div style="width:40px"></div>
+  </div>
+
   <!-- Layout principal com barra lateral -->
   <div class="layout">
     <!-- Barra lateral de categorias -->
-    <aside class="sidebar">
-      <img src="ITBLUELOGO.png" alt="Logo" class="sidebar-logo" />
+    <aside class="sidebar" id="sidebar">
       <h3>CATEGORIAS</h3>
       <ul>
         <li onclick="filterByCategory('multimidia')">Multimídia</li>
@@ -150,7 +153,8 @@
     }
 
     function toggleSidebar() {
-      document.querySelector('.sidebar').classList.toggle('show');
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
     }
 
     window.onload = () => {
