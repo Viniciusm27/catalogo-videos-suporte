@@ -2,7 +2,7 @@
   {
     "title": "Como configurar no APP LEDART",
     "embed": "https://www.youtube.com/embed/Dby-BVcfC1w",
-    "description": "Modelos atendidos: Painel de LED",
+    "description": "Modelos atendidos: Controladoras que possuem Wifi, Painel de LED",
     "link": "https://youtu.be/Dby-BVcfC1w",
     "category": "paineldeled"
   },
@@ -35,42 +35,49 @@
     "category": "camera"
   },
   {
-    "title": "Vídeo de fone de ouvido de capacete",
+    "title": "Intercomunicador - LE-2473",
     "embed": "https://www.youtube.com/embed/4ALHIUCg0rA",
-    "description": "Modelos atendidos: LE-2473, LE-2474",
+    "description": "Modelos atendidos: LE-2473",
     "link": "https://youtu.be/4ALHIUCg0rA",
     "category": "todos"
   },
   {
-    "title": "PONTO FACIAL 1",
+    "title": "Relogio De Ponto SC-9003 - Parte 1",
     "embed": "https://www.youtube.com/embed/oXofHh9HZA0",
-    "description": "Modelos atendidos: Ponto",
+    "description": "Modelos atendidos: SC-9003, SC9003",
     "link": "https://youtu.be/oXofHh9HZA0",
     "category": "relogiodeponto"
   },
   {
-    "title": "PONTO FACIAL 2",
+    "title": "Relogio De Ponto SC-9003 - Parte 2",
     "embed": "https://www.youtube.com/embed/nZAfvozL5NA",
-    "description": "Modelos atendidos: Relógio de ponto",
+    "description": "Modelos atendidos: SC-9003, SC9003",
     "link": "https://youtu.be/nZAfvozL5NA",
     "category": "relogiodeponto"
   },
   {
-    "title": "Cadastro de digital relógios SC 9002C",
+    "title": "Cadastro de digital relógio de ponto SC-9002C",
     "embed": "https://www.youtube.com/embed/3XwtP94qVBM",
     "description": "Modelos atendidos: SC-9002C, SC9002C",
     "link": "https://youtu.be/3XwtP94qVBM",
     "category": "relogiodeponto"
   },
   {
-    "title": "Configuração no painel de led HD2020",
+    "title": "Configuração Hd player - Painel de led",
+    "embed": "https://www.youtube.com/embed/fuv00CalgVII",
+    "description": "Modelos atendidos: SL2110 - 2135",
+    "link": "https://youtu.be/fuv00CalgVII",
+    "category": "paineldeled"
+  },
+  {
+    "title": "Configuração HD2020 - Painel de led",
     "embed": "https://www.youtube.com/embed/fuv00CalgVI",
-    "description": "Modelos atendidos: Painel de LED",
+    "description": "Modelos atendidos: SL0721A - SL2047C-P10",
     "link": "https://youtu.be/fuv00CalgVI",
     "category": "paineldeled"
   },
   {
-    "title": "B16 Alexa",
+    "title": "SC-B16 Alexa",
     "embed": "https://www.youtube.com/embed/9dAURXfDSxw",
     "description": "Modelos atendidos: SC-B16",
     "link": "https://youtu.be/9dAURXfDSxw",
@@ -86,72 +93,72 @@
   {
     "title": "desbloquear planilha relógio de ponto",
     "embed": "https://www.youtube.com/embed/dbzDKGgjX2o",
-    "description": "Modelos atendidos: Relógio de ponto",
+    "description": "Modelos atendidos: SC-9002, SC-9002-C, SC-9003, SC-9005, SC9002, SC9002C, SC9003, SC9005",
     "link": "https://youtu.be/dbzDKGgjX2o",
     "category": "relogiodeponto"
   },
   {
     "title": "DVR como mudar tecnologia da camera",
     "embed": "https://www.youtube.com/embed/1fEkbPxlfvk",
-    "description": "Modelos atendidos: DVR",
+    "description": "Modelos atendidos: DVR'S em geral",
     "link": "https://youtu.be/1fEkbPxlfvk",
     "category": "dvr"
   },
   {
     "title": "Compartilhar acesso camera Yoosee",
     "embed": "https://www.youtube.com/embed/OOA_22Pu9eo",
-    "description": "Modelos atendidos: Câmeras Yoosee",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/OOA_22Pu9eo",
     "category": "camera"
   },
   {
     "title": "Configurando os Modos de Gravação da Câmera IT-BLUE com o App YooSee",
     "embed": "https://www.youtube.com/embed/pXtqBdYWkhg",
-    "description": "Modelos atendidos: Câmeras Yoosee",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/pXtqBdYWkhg",
     "category": "camera"
   },
   {
     "title": "Configuração de Proteção inteligente câmeras ITLBUE yoosee",
     "embed": "https://www.youtube.com/embed/7zSNcx2PwUU",
-    "description": "Modelos atendidos: Câmeras Yoosee",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/7zSNcx2PwUU",
     "category": "camera"
   },
   {
     "title": "Compartilhar Câmeras ITBLUE no aplicativo Yoosee",
     "embed": "https://www.youtube.com/embed/yIJEgO5V3V0",
-    "description": "Modelos atendidos: Câmeras Yoosee",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/yIJEgO5V3V0",
     "category": "camera"
   },
   {
-    "title": "Câmera sc-b3",
+    "title": "Configuração Câmera - Yoosee",
     "embed": "https://www.youtube.com/embed/UkDMMdkFwtQ",
-    "description": "Modelos atendidos: SC-B3",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/UkDMMdkFwtQ",
     "category": "camera"
   },
   {
-    "title": "Câmera sc-B3",
+    "title": "Configuração Câmera - yoosee",
     "embed": "https://www.youtube.com/embed/0dmVdXCtjZ8",
-    "description": "Modelos atendidos: SC-B3",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/0dmVdXCtjZ8",
     "category": "camera"
   },
   {
-    "title": "Câmera SC-B3",
+    "title": "Configuração Câmera - yoosee",
     "embed": "https://www.youtube.com/embed/H55jEJZYZAw",
-    "description": "Modelos atendidos: SC-B3",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/H55jEJZYZAw",
     "category": "camera"
   },
   {
-    "title": "ajuste relogio 2",
+    "title": "Ajustando relogio no App Hd player",
     "embed": "https://www.youtube.com/embed/E0wA9luqTIM",
-    "description": "Modelos atendidos: Relógio de ponto",
+    "description": "Modelos atendidos: Paineis que utilizam APP HD Player",
     "link": "https://youtu.be/E0wA9luqTIM",
-    "category": "relogiodeponto"
+    "category": "paineldeled"
   },
   {
     "title": "SUPORTE RASTREADOR.. LE-091",
@@ -161,30 +168,30 @@
     "category": "todos"
   },
   {
-    "title": "CÂMERA ROBOZINHO",
+    "title": "Configuração Câmera - yoosee",
     "embed": "https://www.youtube.com/embed/xO8pg8AxEOs",
-    "description": "Modelos atendidos: Câmera robôzinho",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/xO8pg8AxEOs",
     "category": "camera"
   },
   {
-    "title": "Como configurar Painel de led 1025C - P10",
+    "title": "Como configurar Painel de led SL1025C-P10",
     "embed": "https://www.youtube.com/embed/C7H3bwxdGbY",
     "description": "Modelos atendidos: SL-1025C-P10, SL1025C-P10",
     "link": "https://youtu.be/C7H3bwxdGbY",
     "category": "paineldeled"
   },
   {
-    "title": "Como conectar câmera B14",
+    "title": "Configuração Câmera - yoosee",
     "embed": "https://www.youtube.com/embed/RQxJkF9aok4",
-    "description": "Modelos atendidos: SC-B14",
+    "description": "Modelos atendidos: SC-B3, SC-B4, SC-B6, SC-B9, SC-B12, SC-B13, SC-B15, SC-B14, SC-B17, SC-B20, SC-B21, SC-B24, SC-B25, SC-B32, SC-B35",
     "link": "https://youtu.be/RQxJkF9aok4",
     "category": "camera"
   },
   {
     "title": "Programação Vídeo e Imagens HD PLAYER - C16 Painel de LED",
     "embed": "https://www.youtube.com/embed/YG07dJC78Tc",
-    "description": "Modelos atendidos: Controladora C16",
+    "description": "Modelos atendidos: Controladora C16, painel de LED",
     "link": "https://youtu.be/YG07dJC78Tc",
     "category": "paineldeled"
   },
@@ -205,28 +212,28 @@
   {
     "title": "configurar LED ART PLATAFORMA CLOUD",
     "embed": "https://www.youtube.com/embed/NaR9VzJW3fQ",
-    "description": "Modelos atendidos: Totem, totens",
+    "description": "Modelos atendidos: LE-1050, LE-1052, LE-1053, LE-1054, LE-1061, LE-1062, LE-1063, LE-1064, LE-1072, LE-1073, LE-1074, LE-1081, LE-1082, LE-1083",
     "link": "https://youtu.be/NaR9VzJW3fQ",
     "category": "totem"
   },
   {
     "title": "Totem IT Blue - Cloud no LED ART",
     "embed": "https://www.youtube.com/embed/wZq7Byv0dSw",
-    "description": "Modelos atendidos: Totem, totens",
+    "description": "Modelos atendidos: LE-1050, LE-1052, LE-1053, LE-1054, LE-1061, LE-1062, LE-1063, LE-1064, LE-1072, LE-1073, LE-1074, LE-1081, LE-1082, LE-1083",
     "link": "https://youtu.be/wZq7Byv0dSw",
     "category": "todos"
   },
   {
     "title": "Criando a primeira programação no TOTEM IT-BLUE",
     "embed": "https://www.youtube.com/embed/rL-e7oqKbtk",
-    "description": "Modelos atendidos: Totem, totens",
+    "description": "Modelos atendidos: LE-1050, LE-1052, LE-1053, LE-1054, LE-1061, LE-1062, LE-1063, LE-1064, LE-1072, LE-1073, LE-1074, LE-1081, LE-1082, LE-1083",
     "link": "https://youtu.be/rL-e7oqKbtk",
     "category": "todos"
   },
   {
     "title": "Configurando o Totem IT-BLUE através da Cloud",
     "embed": "https://www.youtube.com/embed/4Fe4JL5QJ9Q",
-    "description": "Modelos atendidos: Totem, totens",
+    "description": "Modelos atendidos: LE-1050, LE-1052, LE-1053, LE-1054, LE-1061, LE-1062, LE-1063, LE-1064, LE-1072, LE-1073, LE-1074, LE-1081, LE-1082, LE-1083",
     "link": "https://youtu.be/4Fe4JL5QJ9Q",
     "category": "todos"
   },
@@ -238,7 +245,7 @@
     "category": "camera"
   },
   {
-    "title": "Configurando a Câmera IT-BLUE SCB11 yoosee",
+    "title": "Configurando a Câmera IT-BLUE SC-B11 yoosee",
     "embed": "https://www.youtube.com/embed/cfSwPFbQiZ4",
     "description": "Modelos atendidos: SC-B11",
     "link": "https://youtu.be/cfSwPFbQiZ4",
@@ -261,7 +268,7 @@
   {
     "title": "Como criar restrições e novos usuários DVR It-Blue",
     "embed": "https://www.youtube.com/embed/kmjXc39QFlE",
-    "description": "Modelos atendidos: SC9235, SC9237, SC9239, SC9504, SC9508, SC9516",
+    "description": "Modelos atendidos: SC9235, SC9237, SC9239, SC9504, SC9508, SC9516, App P6spro e P6slite ",
     "link": "https://youtu.be/kmjXc39QFlE",
     "category": "dvr"
   },
@@ -282,7 +289,7 @@
   {
     "title": "Configuração inicial HDplayer - Painel de led SEMI",
     "embed": "https://www.youtube.com/embed/kmjXc39QFlE",
-    "description": "Modelos atendidos: SL2110, SL2131, SL2130",
+    "description": "Modelos atendidos: SL2110, SL2131, SL2130, Para todos os paineis que começam com o código 21",
     "link": "https://youtu.be/5B41668t4DY",
     "category": "paineldeled"
   },
