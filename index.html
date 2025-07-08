@@ -26,8 +26,7 @@
       }
     }
     .copy-btn,
-    .share-btn,
-    .chatwoot-btn {
+    .share-btn {
       margin: 5px 4px 0 0;
       background-color: #1976d2;
       color: white;
@@ -39,9 +38,6 @@
     }
     .share-btn {
       background-color: #25d366;
-    }
-    .chatwoot-btn {
-      background-color: #6c63ff;
     }
   </style>
 </head>
@@ -139,7 +135,6 @@
             <p class="description">${video.description}</p>
             <button class="copy-btn" onclick="copyToClipboard('${video.link}')">Copiar Link</button>
             <button class="share-btn" onclick="shareVideo('${video.title}', '${video.description}', '${video.link}')">Compartilhar</button>
-            <button class="chatwoot-btn" onclick="sendToChatwoot('${video.title}', '${video.description}', '${video.link}')">Chatwoot</button>
           </div>
         `;
       });
@@ -190,30 +185,6 @@
       } else {
         alert("Seu navegador não suporta compartilhamento direto. Copie o link manualmente.");
       }
-    }
-
-    function sendToChatwoot(title, description, link) {
-      const message = `📹 *${title}*\n\n${description}\n\n🔗 ${link}`;
-
-      fetch('https://chatwoot-chatwoot.2fd8ez.easypanel.host/api/v1/accounts/1/conversations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api_access_token': 'raYwomVjGfDN79AQ24QcPe5M'
-        },
-        body: JSON.stringify({ source_id: "minhas", inbox_id: 1, contact_id: 1, content: message, message_type: 'outgoing' })
-      })
-      .then(response => {
-        if (response.ok) {
-          alert("Enviado para Chatwoot com sucesso!");
-        } else {
-          alert("Erro ao enviar para Chatwoot.");
-        }
-      })
-      .catch(error => {
-        console.error("Erro:", error);
-        alert("Erro na requisição para o Chatwoot.");
-      });
     }
 
     function reloadApp() {
