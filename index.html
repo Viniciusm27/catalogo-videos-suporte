@@ -25,6 +25,20 @@
         display: none !important;
       }
     }
+    .copy-btn,
+    .share-btn {
+      margin: 5px 4px 0 0;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .share-btn {
+      background-color: #25d366;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +76,9 @@
         <li onclick="filterByCategory('dvr')">DVR</li>
         <li onclick="filterByCategory('relogiodeponto')">Relógio de ponto</li>
         <li onclick="filterByCategory('paineldeled')">Painel de LED</li>
+        <li onclick="filterByCategory('fonebluetooth')">Fone Bluetooth</li>
+        <li onclick="filterByCategory('suporte')">Suporte</li>
+        <li onclick="filterByCategory('totem')">Totem</li>
         <li onclick="filterByCategory('todos')">Todos</li>
       </ul>
     </aside>
@@ -75,6 +92,7 @@
     </main>
   </div>
 
+  <script src="videos.json" type="application/json"></script>
   <script>
     let videos = [];
     let currentPage = 1;
@@ -116,6 +134,7 @@
             <p><strong>${video.title}</strong></p>
             <p class="description">${video.description}</p>
             <button class="copy-btn" onclick="copyToClipboard('${video.link}')">Copiar Link</button>
+            <button class="share-btn" onclick="shareVideo('${video.title}', '${video.description}', '${video.link}')">Compartilhar</button>
           </div>
         `;
       });
@@ -154,6 +173,18 @@
       navigator.clipboard.writeText(link).then(() => {
         alert("Link copiado com sucesso!");
       });
+    }
+
+    function shareVideo(title, description, link) {
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: description,
+          url: link
+        }).catch(err => console.error('Erro ao compartilhar:', err));
+      } else {
+        alert("Seu navegador não suporta compartilhamento direto. Copie o link manualmente.");
+      }
     }
 
     function reloadApp() {
