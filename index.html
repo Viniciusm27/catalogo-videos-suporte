@@ -9,40 +9,9 @@
   <link rel="manifest" href="manifest.json" />
   <title>Catálogo de Vídeos - Suporte Técnico</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isIOS && window.location.search.indexOf('v=') === -1) {
-      const newURL = `${window.location.pathname}?v=${Date.now()}`;
-      window.location.replace(newURL);
-    }
-  </script>
-  <style>
-    @media (min-width: 769px) {
-      .menu-toggle {
-        display: none !important;
-      }
-      .sidebar-logo {
-        display: none !important;
-      }
-    }
-    .copy-btn,
-    .share-btn {
-      margin: 5px 4px 0 0;
-      background-color: #1976d2;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .share-btn {
-      background-color: #25d366;
-    }
-  </style>
+  
 </head>
 <body>
-  <!-- Splash screen -->
   <div id="splash-screen">
     <div class="splash-content">
       <img src="ITBLUELOGO.png" alt="Logo" class="splash-logo" />
@@ -50,20 +19,17 @@
     </div>
   </div>
 
-  <!-- Notificação de atualização -->
   <div id="update-notice" style="display: none;">
     🔄 Nova versão disponível. <button onclick="reloadApp()">Clique para atualizar</button>
   </div>
 
-  <!-- Barra superior -->
   <div class="top-bar">
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <img src="ITBLUELOGO.png" class="top-logo" alt="Logo ITBLUE" />
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
   </div>
 
-  <!-- Layout principal com barra lateral -->
   <div class="layout" onclick="closeMenuOnClickOutside(event)">
-    <!-- Barra lateral de categorias -->
     <aside class="sidebar" id="sidebar">
       <img src="ITBLUELOGO.png" class="sidebar-logo" alt="Logo ITBLUE" />
       <h3>
@@ -83,22 +49,23 @@
       </ul>
     </aside>
 
-    <!-- Conteúdo principal -->
     <main class="container">
       <h1>Catálogo de Vídeos - Suporte Técnico</h1>
-      <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="searchVideos()" />
+      <input type="text" class="search-bar" placeholder="Buscar por modelo, ex: SC-B12" oninput="debouncedSearch()" />
       <div id="video-list"></div>
       <div class="pagination" id="pagination"></div>
     </main>
   </div>
 
-  <script src="videos.json" type="application/json"></script>
+  <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
   <script>
     let videos = [];
     let currentPage = 1;
     const videosPerPage = 10;
     let searchTerm = '';
     let currentCategory = 'todos';
+    let debounceTimeout;
 
     async function loadVideos() {
       try {
@@ -129,7 +96,7 @@
         list.innerHTML += `
           <div class="video">
             <div class="video-wrapper">
-              <iframe src="${video.embed}" frameborder="0" allowfullscreen></iframe>
+              <iframe loading="lazy" src="${video.embed}" frameborder="0" allowfullscreen></iframe>
             </div>
             <p><strong>${video.title}</strong></p>
             <p class="description">${video.description}</p>
@@ -140,6 +107,7 @@
       });
 
       updatePagination(filteredVideos.length);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function updatePagination(totalVideos) {
@@ -157,15 +125,25 @@
       displayVideos();
     }
 
-    function searchVideos() {
-      searchTerm = document.querySelector('.search-bar').value.toLowerCase();
-      currentPage = 1;
-      displayVideos();
+    function debouncedSearch() {
+      clearTimeout(debounceTimeout);
+      debounceTimeout = setTimeout(() => {
+        searchTerm = document.querySelector('.search-bar').value.toLowerCase();
+        currentPage = 1;
+        displayVideos();
+      }, 300);
     }
 
     function filterByCategory(category) {
       currentCategory = category;
       currentPage = 1;
+      document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+      const listItems = document.querySelectorAll('.sidebar ul li');
+      listItems.forEach(li => {
+        if (li.textContent.toLowerCase().includes(category)) {
+          li.classList.add('active');
+        }
+      });
       displayVideos();
     }
 
@@ -210,11 +188,29 @@
       }
     }
 
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    }
+
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
     window.onload = () => {
       setTimeout(() => {
         const splash = document.getElementById('splash-screen');
         if (splash) splash.style.display = 'none';
       }, 3000);
+
+      if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+      }
 
       loadVideos();
     };
@@ -235,6 +231,32 @@
         });
       });
     }
+  </script>
+        <div id="video-list"></div>
+      <div class="pagination" id="pagination"></div>
+  ...
+  <script>
+    
+    function updatePagination(totalVideos) {
+      const totalPages = Math.ceil(totalVideos / videosPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+
+      if (totalPages <= 1) return;
+
+      if (currentPage > 1) {
+        pagination.innerHTML += `<button onclick="goToPage(${currentPage - 1})">Anterior</button>`;
+      }
+
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `<button onclick="goToPage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+      }
+
+      if (currentPage < totalPages) {
+        pagination.innerHTML += `<button onclick="goToPage(${currentPage + 1})">Próxima</button>`;
+      }
+    }
+    
   </script>
 </body>
 </html>
