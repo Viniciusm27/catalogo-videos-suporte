@@ -285,5 +285,41 @@
     "description": "Modelos atendidos: SL2110, SL2131, SL2130",
     "link": "https://youtu.be/5B41668t4DY",
     "category": "paineldeled"
+  },
+  {
+    "title": "Câmera de Ré - LE-6335",
+    "embed": "https://www.youtube.com/embed/shorts/eF3Kd_BNuFM?feature=share",
+    "description": "Modelos atendidos: LE-6335",
+    "link": "https://youtube.com/shorts/eF3Kd_BNuFM?feature=share",
+    "category": "multimidia"
+  },
+  {
+    "title": "Ativação do comando de voz - LE 6329",
+    "embed": "https://www.youtube.com/shorts/embed/ahokOKDxThE?feature=share",
+    "description": "Modelos atendidos: LE-6329",
+    "link": "https://youtube.com/shorts/ahokOKDxThE?feature=share",
+    "category": "multimidia"
+  },
+  {
+    "title": "Configuração câmera frontal - LE-6313 a LE-6335",
+    "embed": "https://www.youtube.com/shorts/embed/1f2pgLnTrw4?feature=share",
+    "description": "Modelos atendidos: LE-6313, LE-6314, LE-6315, LE-6316, LE-6317, LE-6318, LE-6319, LE-6320, LE-6321, LE-6322, LE-6323, LE-6324, LE-6325, LE-6326, LE-6327, LE-6328, LE-6329, LE-6330, LE-6331, LE-6332, LE-6333, LE-6334, LE-6335",
+    "link": "https://youtube.com/shorts/1f2pgLnTrw4?feature=share",
+    "category": "multimidia"
+  },
+  {
+    "title": "Reinstalação dos aplicativos nativos - LE-6329",
+    "embed": "https://www.youtube.com/embed/gU0RTJrHF1w",
+    "description": "Modelos atendidos: LE-6329",
+    "link": "https://youtu.be/gU0RTJrHF1w",
+    "category": "multimidia"
+  },
+  {
+    "title": "Conexão Carplay/Android AUTO LE-6319 e LE-6320",
+    "embed": "https://www.youtube.com/embed/MIA_vek-t0Y",
+    "description": "Modelos atendidos: LE-6319, LE-6320",
+    "link": "https://youtu.be/MIA_vek-t0Y",
+    "category": "multimidia"
   }
+
 ]
