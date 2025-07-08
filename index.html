@@ -37,15 +37,16 @@
         <button class="close-btn" onclick="toggleMenu()">✕</button>
       </h3>
       <ul>
-        <li onclick="filterByCategory('multimidia')">Multimídia</li>
-        <li onclick="filterByCategory('camera')">Câmera</li>
-        <li onclick="filterByCategory('dvr')">DVR</li>
-        <li onclick="filterByCategory('relogiodeponto')">Relógio de ponto</li>
-        <li onclick="filterByCategory('paineldeled')">Painel de LED</li>
-        <li onclick="filterByCategory('fonebluetooth')">Fone Bluetooth</li>
-        <li onclick="filterByCategory('suporte')">Suporte</li>
-        <li onclick="filterByCategory('totem')">Totem</li>
-        <li onclick="filterByCategory('todos')">Todos</li>
+<li data-category="multimidia" onclick="filterByCategory('multimidia')">Multimídia</li>
+<li data-category="camera" onclick="filterByCategory('camera')">Câmera</li>
+<li data-category="dvr" onclick="filterByCategory('dvr')">DVR</li>
+<li data-category="relogiodeponto" onclick="filterByCategory('relogiodeponto')">Relógio de ponto</li>
+<li data-category="paineldeled" onclick="filterByCategory('paineldeled')">Painel de LED</li>
+<li data-category="fonebluetooth" onclick="filterByCategory('fonebluetooth')">Fone Bluetooth</li>
+<li data-category="suporte" onclick="filterByCategory('suporte')">Suporte</li>
+<li data-category="totem" onclick="filterByCategory('totem')">Totem</li>
+<li data-category="todos" onclick="filterByCategory('todos')">Todos</li>
+
       </ul>
     </aside>
 
@@ -140,10 +141,11 @@
       document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
       const listItems = document.querySelectorAll('.sidebar ul li');
       listItems.forEach(li => {
-        if (li.textContent.toLowerCase().includes(category)) {
-          li.classList.add('active');
-        }
-      });
+  if (li.dataset.category === category) {
+    li.classList.add('active');
+  }
+});
+;
       displayVideos();
     }
 
