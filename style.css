@@ -5,6 +5,29 @@ body {
   background-color: #f9f9f9;
   color: #222;
 }
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  .sidebar-logo {
+    display: none !important;
+  }
+}
+.copy-btn,
+.share-btn {
+  margin: 5px 4px 0 0;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.share-btn {
+  background-color: #25d366;
+}
 
 /* Topo fixo com logo centralizado */
 .top-bar {
@@ -101,6 +124,13 @@ body {
   background-color: #e3f2fd;
 }
 
+.sidebar ul li.active {
+  background-color: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
 /* Conteúdo principal */
 .container {
   flex: 1;
@@ -183,6 +213,8 @@ h1 {
   margin-top: 30px;
 }
 
+
+
 .pagination button {
   padding: 8px 12px;
   margin: 0 4px;
@@ -198,6 +230,49 @@ h1 {
 .pagination button:hover {
   background-color: #125fa4;
 }
+.pagination button {
+      margin: 2px;
+      padding: 5px 10px;
+      border: none;
+      background-color: #eee;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background-color: #1976d2;
+      color: white;
+      font-weight: bold;
+    }
+    
+    /* Dark Mode */
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .dark-mode .top-bar,
+    .dark-mode .sidebar,
+    .dark-mode .video,
+    .dark-mode .pagination button,
+    .dark-mode input.search-bar {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+    .dark-toggle {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 20px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
 
 /* Splash screen */
 #splash-screen {
@@ -310,4 +385,21 @@ h1 {
   .top-logo {
     height: 36px;
   }
+}
+
+/* Voltar ao topo */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
 }
